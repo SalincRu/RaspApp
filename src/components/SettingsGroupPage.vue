@@ -25,6 +25,7 @@
 
 <script>
 import ViewGroupPage from "./ViewGroupPage";
+import { fetchGroups } from "../raspFetcher";
 
 export default {
   name: "GroupsPage",
@@ -62,8 +63,7 @@ export default {
     }
   },
   mounted() {
-    fetch("/api.php?method=groups")
-      .then(response => response.json())
+    fetchGroups()
       .then(response => (this.groups = response))
       .catch(error => {
         this.offline = true;

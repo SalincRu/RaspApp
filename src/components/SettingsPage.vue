@@ -21,27 +21,20 @@
       >Установить</v-ons-list-item>
       <v-ons-list-item @click="openAboutPage" modifier="chevron" tappable>О программе</v-ons-list-item>
     </v-ons-list>
-    <div class="bottom">Версия приложения 1.1.0 от 03.09.2019</div>
+    <div class="bottom">Версия приложения {{ver.version}} от {{ver.date}}</div>
   </v-ons-page>
 </template>
-
-<style lang="scss">
-.bottom {
-  margin-top: 5px;
-  font-size: 0.75em;
-  text-align: center;
-  color: #999;
-}
-</style>
 
 <script>
 import AboutPage from "./AboutPage";
 import SettingsGroupPage from "./SettingsGroupPage";
+import clog from "../changelog";
 
 export default {
   name: "SettingsPage",
   data: () => ({
-    installEvent: null
+    installEvent: null,
+    ver: clog[0]
   }),
   methods: {
     openAboutPage() {
@@ -71,3 +64,12 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.bottom {
+  margin-top: 5px;
+  font-size: 0.75em;
+  text-align: center;
+  color: #999;
+}
+</style>

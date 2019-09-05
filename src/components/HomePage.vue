@@ -56,6 +56,8 @@
 </template>
 
 <script>
+import { fetchGroupRasp } from "../raspFetcher";
+
 export default {
   data: () => ({
     defaultGroup: null,
@@ -72,8 +74,7 @@ export default {
     },
     updateRasp(done) {
       if (this.defaultGroup) {
-        fetch("/api.php?method=rasp&type=group&group=" + this.defaultGroup)
-          .then(request => request.json())
+        fetchGroupRasp(this.defaultGroup)
           .then(request => {
             //this.groupData = request;
             this.$store.commit("SET_LAST_RASP", request);

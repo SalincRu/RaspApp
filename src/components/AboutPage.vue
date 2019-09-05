@@ -8,20 +8,22 @@
     </v-ons-toolbar>
 
     <div>
-      <!-- <v-ons-list style="margin-bottom: 10px;">
-        <v-ons-list-item @click="openUrl('https://github.com/Psydk')" modifier="chevron" tappable>
+      <h2 style="margin: 10px">Расписание СИК</h2>
+
+      <v-ons-list style="margin-bottom: 10px;">
+        <v-ons-list-item @click="openUrl('https://github.com/SalincRu/RaspApp')" modifier="chevron" tappable>
           <div class="left">
             <v-ons-icon size="25px" icon="mdi-github-circle"></v-ons-icon>
           </div>
           <div class="center">GitHub</div>
         </v-ons-list-item>
-        <v-ons-list-item @click="openUrl('https://github.com/Psydk')" modifier="chevron" tappable>
+        <!-- <v-ons-list-item @click="openUrl('https://github.com/Psydk')" modifier="chevron" tappable>
           <div class="left">
             <v-ons-icon size="25px" icon="mdi-link"></v-ons-icon>
           </div>
           <div class="center">API расписания</div>
-        </v-ons-list-item>
-      </v-ons-list> -->
+        </v-ons-list-item> -->
+      </v-ons-list>
 
       <div class="content">
         <h3>Список изменений</h3>
@@ -48,24 +50,12 @@ ul {
 </style>
 
 <script>
+import clog from "../changelog";
+
 export default {
   data: () => ({
-    changelog: [
-      {
-        version: "1.1.0",
-        date: "03.09.2019",
-        changes: [
-          "Добавлена возможность выбора основной группы"
-        ]
-      },
-      {
-        version: "1.0.0",
-        date: "02.09.2019",
-        changes: [
-          "Первая версия"
-        ]
-      }
-    ]
+    changelog: clog,
+    hostname: location.hostname
   }),
   methods: {
     openUrl(url) {

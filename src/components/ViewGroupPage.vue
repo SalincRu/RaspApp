@@ -36,7 +36,8 @@
 </style>
 
 <script>
-import { request } from 'http';
+import { fetchGroupRasp } from "../raspFetcher";
+
 export default {
   name: "ViewGroupPage",
   data: () => ({
@@ -80,9 +81,14 @@ export default {
   },
   mounted() {
     this.defaultGroup = this.$store.getters.SETTINGS.group;
-    fetch("/api.php?method=rasp&type=group&group=" + this.groupName)
-      .then(request => request.json())
-      .then(request => this.groupData = request);
+    fetchGroupRasp(this.groupName)
+      .then(request => (this.groupData = request))
+      .catch(error => {
+        this.$ons.notification.toast("Не удалось загрузить расписание группы", {
+          timeout: 2000
+        });
+        done();
+      });
   }
 };
 </script>
