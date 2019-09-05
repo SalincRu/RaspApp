@@ -24,6 +24,6 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: "Publish Artifact"
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/dist'
     ArtifactName: 'dist'
     publishLocation: 'Container'
