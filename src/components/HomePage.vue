@@ -12,7 +12,7 @@
         v-if="!md()"
         size="22px"
         class="pull-hook-spinner"
-        :icon="state === 'action' ? 'mdi-refresh' : 'mdi-arrow-down-bold'"
+        :icon="state === 'action' ? 'fa-spinner' : 'fa-arrow-down'"
         :rotate="state === 'preaction' && 180"
         :spin="state === 'action'"
       ></v-ons-icon>
